@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { bundle, bundledOutput } from '../../bundler';
+import { bundledOutput } from '../../bundler';
 import CodeEditor from '../CodeEditor';
 import Preview from '../Preview';
 
 const CodeCell: React.FC = () => {
   const [input, setInput] = useState('');
   const [code, setCode] = useState('');
-
-  // start esbuild-wasm service
-  useEffect(() => {
-    bundle();
-  }, []);
 
   // generate transpiled and bundled code
   const onClick = async () => {
